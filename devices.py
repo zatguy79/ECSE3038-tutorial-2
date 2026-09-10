@@ -25,7 +25,7 @@ def average_temp(R):
                 if key == R[2]:
                     temp = temp + value 
         avg_temp = temp/len(readings)
-        print(f"{avg_temp:.1f}")
+        print(avg_temp)
 
 def hottest(E):
         T_temp = 0
@@ -34,9 +34,9 @@ def hottest(E):
                 if key == E[2]:
                     if value > T_temp:
                         T_temp = value
-        print(T_temp)
+                        T_temp_dict = readings[index]
+        print(T_temp_dict)
 
-     
 list_devices(devices)
 
 average_temp(devices)
