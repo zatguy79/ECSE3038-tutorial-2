@@ -5,8 +5,10 @@ readings = [
     {"name": "fridge",     "room": "kitchen", "temp": 4.2,  "online": False},
     {"name": "patio",      "room": "outside", "temp": 29.8, "online": True},
 ]
+
 x = 0
 devices = ["name", "temp"]
+
 def list_devices(T):
         for index, item in enumerate(readings):
             for key, value in readings[index].items():
@@ -15,6 +17,20 @@ def list_devices(T):
                 if key == T[1]:
                     print(f"{value}")   
 
+
+def average_temp(R):
+        temp = 0
+        for index, item in enumerate(readings):
+            for key, value in readings[index].items():
+                if key == R[1]:
+                    temp = temp + value 
+        avg_temp = temp/len(readings)
+        print(f"{avg_temp:.1f}")
+
 list_devices(devices)
+
+average_temp(devices)
+
+
 
 
