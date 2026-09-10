@@ -7,14 +7,14 @@ readings = [
 ]
 
 x = 0
-devices = ["name", "temp"]
+devices = ["name", "room", "temp", "online"]
 
 def list_devices(T):
         for index, item in enumerate(readings):
             for key, value in readings[index].items():
                 if key == T[0]:
                     print(f"{value}", end=" ")
-                if key == T[1]:
+                if key == T[2]:
                     print(f"{value}")   
 
 
@@ -22,14 +22,26 @@ def average_temp(R):
         temp = 0
         for index, item in enumerate(readings):
             for key, value in readings[index].items():
-                if key == R[1]:
+                if key == R[2]:
                     temp = temp + value 
         avg_temp = temp/len(readings)
         print(f"{avg_temp:.1f}")
 
+def hottest(E):
+        T_temp = 0
+        for index, item in enumerate(readings):
+            for key, value in readings[index].items():
+                if key == E[2]:
+                    if value > T_temp:
+                        T_temp = value
+        print(T_temp)
+
+     
 list_devices(devices)
 
 average_temp(devices)
+
+hottest(devices)
 
 
 
