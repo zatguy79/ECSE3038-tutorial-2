@@ -1,3 +1,5 @@
+from collections import defaultdict
+
 readings = [
     {"name": "front-door", "room": "hall",    "temp": 27.4, "online": True},
     {"name": "hall-lamp",  "room": "hall",    "temp": 26.1, "online": True},
@@ -58,8 +60,16 @@ def to_status(W):
                         dev_dict = dict(device = (device), status = "ok", celcius = (readings[index]["temp"]))                    
                    print(dev_dict)
                    break
-                  
 
+room_dict = {}    
+room_dict = defaultdict(list)
+ 
+def by_room(Q):
+        for index, item in enumerate(readings):
+            room_dict[readings[index][(Q[1])]].append(readings[index][(Q[0])])
+
+        print(dict(room_dict))
+     
 list_devices(devices)
 
 average_temp(devices)
@@ -67,6 +77,8 @@ average_temp(devices)
 hottest(devices)
 
 to_status(device)
+
+by_room(devices)
 
 
 
